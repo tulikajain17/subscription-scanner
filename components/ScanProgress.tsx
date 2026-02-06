@@ -9,6 +9,8 @@ interface ScanProgressProps {
 export default function ScanProgress({ progress }: ScanProgressProps) {
   const getStatusMessage = () => {
     switch (progress.status) {
+      case 'idle':
+        return 'Starting scan...';
       case 'authenticating':
         return 'Connecting to Gmail...';
       case 'searching':

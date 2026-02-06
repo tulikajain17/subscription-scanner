@@ -240,10 +240,28 @@ export default function DashboardPage() {
     return Array.from(categories);
   };
 
+  // Show loading while checking session
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary-200 border-t-primary-600 mx-auto mb-4"></div>
+          <h2 className="text-xl font-semibold text-slate-700 mb-2">Loading...</h2>
+          <p className="text-slate-500">Checking your session</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading while waiting for access token
+  if (status === 'authenticated' && !session?.accessToken) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary-200 border-t-primary-600 mx-auto mb-4"></div>
+          <h2 className="text-xl font-semibold text-slate-700 mb-2">Connecting to Gmail...</h2>
+          <p className="text-slate-500">Setting up secure access</p>
+        </div>
       </div>
     );
   }
