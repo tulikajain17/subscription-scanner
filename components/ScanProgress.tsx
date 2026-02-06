@@ -88,6 +88,16 @@ export default function ScanProgress({ progress }: ScanProgressProps) {
         </div>
       )}
 
+      {/* Retry button for errors */}
+      {isError && (
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-4 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition"
+        >
+          Try Again
+        </button>
+      )}
+
       {/* Status Message */}
       <h2
         className={`text-xl font-semibold text-center mb-2 ${

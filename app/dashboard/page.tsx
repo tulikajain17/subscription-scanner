@@ -261,6 +261,15 @@ export default function DashboardPage() {
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary-200 border-t-primary-600 mx-auto mb-4"></div>
           <h2 className="text-xl font-semibold text-slate-700 mb-2">Connecting to Gmail...</h2>
           <p className="text-slate-500">Setting up secure access</p>
+          <p className="text-xs text-slate-400 mt-4">
+            If this takes too long, try{' '}
+            <button
+              onClick={() => window.location.reload()}
+              className="text-primary-600 underline"
+            >
+              refreshing the page
+            </button>
+          </p>
         </div>
       </div>
     );
